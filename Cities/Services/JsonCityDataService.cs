@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
-using Cities.Models;
+using Cities.Api.Models;
 using Microsoft.Extensions.Logging; // For logging
 using Microsoft.Extensions.Hosting; // For IHostEnvironment
 
-namespace Cities.Services;
+namespace Cities.Api.Services;
 
 /// <summary>
 /// Service to retrieve city data from a JSON file.
@@ -24,7 +24,7 @@ public class JsonCityDataService : ICityDataService
     public JsonCityDataService(IHostEnvironment env, ILogger<JsonCityDataService> logger)
     {
         // Combine ContentRootPath with the relative path to the JSON file
-        _jsonFilePath = Path.Combine(env.ContentRootPath, "Data", "cities.json");
+        _jsonFilePath = Path.Combine(env.ContentRootPath, "Data", "Cities.Api.json");
         _logger = logger;
         _logger.LogInformation("JsonCityDataService initialized. Data path: {FilePath}", _jsonFilePath);
     }
@@ -105,7 +105,7 @@ public class JsonCityDataService : ICityDataService
     }
 
     /// <summary>
-    /// Retrieves all cities.
+    /// Retrieves all Cities.Api.
     /// </summary>
     /// <returns>A list of all <see cref="CityData"/>.</returns>
     public async Task<IEnumerable<CityData>> GetAllCitiesAsync()

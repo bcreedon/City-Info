@@ -1,6 +1,6 @@
-﻿using Cities.Models;
+﻿using Cities.Api.Models;
 
-namespace Cities.Services;
+namespace Cities.Api.Services;
 
 /// <summary>
 /// Interface for accessing city data.
@@ -16,7 +16,7 @@ public interface ICityDataService
     Task<CityData?> GetCityByNameAsync(string cityName);
 
     /// <summary>
-    /// Retrieves all cities.
+    /// Retrieves all Cities.Api.
     /// </summary>
     /// <returns>A list of all <see cref="CityData"/>.</returns>
     Task<IEnumerable<CityData>> GetAllCitiesAsync();

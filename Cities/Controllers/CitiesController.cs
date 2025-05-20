@@ -1,13 +1,13 @@
-﻿using Cities.Models;
+﻿using Cities.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;   // For TimeZoneInfo
-using Cities.Dtos;
-using Cities.Services;
+using Cities.Api.Dtos;
+using Cities.Api.Services;
 
-namespace Cities.Controllers;
+namespace Cities.Api.Controllers;
 
 /// <summary>
-/// API controller for retrieving information about U.S. cities.
+/// API controller for retrieving information about U.S. Cities.Api.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")] // Base route: /api/cities
@@ -67,10 +67,10 @@ public class CitiesController : ControllerBase
     }
 
     /// <summary>
-    /// Gets a list of all available cities.
+    /// Gets a list of all available Cities.Api.
     /// </summary>
     /// <returns>A list of city names and their IDs.</returns>
-    /// <response code="200">Returns a list of all cities.</response>
+    /// <response code="200">Returns a list of all Cities.Api.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<object>), StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<object>>> GetAllCityNames()
@@ -78,7 +78,7 @@ public class CitiesController : ControllerBase
         _logger.LogInformation("Attempting to retrieve all city names.");
         var cities = await _cityDataService.GetAllCitiesAsync();
         var cityList = cities.Select(c => new { c.Id, c.Name, c.State }).ToList();
-        _logger.LogInformation("Retrieved {Count} cities.", cityList.Count);
+        _logger.LogInformation("Retrieved {Count} Cities.Api.", cityList.Count);
         return Ok(cityList);
     }
 

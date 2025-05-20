@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36105.17 d17.14
+VisualStudioVersion = 17.14.36105.17
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cities", "Cities\Cities.csproj", "{D78C244B-FB86-436E-AD22-26B5011DF2E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cities.Api", "Cities\Cities.Api.csproj", "{D78C244B-FB86-436E-AD22-26B5011DF2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cities.Tests", "..\..\..\Documents\USCityInfo\USCityInfo.Tests\Cities.Tests.csproj", "{9AAB63EB-3D96-2FA3-C4AB-0E4E678A6AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D78C244B-FB86-436E-AD22-26B5011DF2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D78C244B-FB86-436E-AD22-26B5011DF2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D78C244B-FB86-436E-AD22-26B5011DF2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAB63EB-3D96-2FA3-C4AB-0E4E678A6AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAB63EB-3D96-2FA3-C4AB-0E4E678A6AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAB63EB-3D96-2FA3-C4AB-0E4E678A6AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAB63EB-3D96-2FA3-C4AB-0E4E678A6AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

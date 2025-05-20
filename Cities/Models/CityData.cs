@@ -1,4 +1,4 @@
-﻿namespace Cities.Models;
+﻿namespace Cities.Api.Models;
 
 /// <summary>
 /// Represents the raw data structure for a city as stored in the JSON file.

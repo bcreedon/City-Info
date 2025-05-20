@@ -1,4 +1,4 @@
-﻿namespace Cities.Dtos;
+﻿namespace Cities.Api.Dtos;
 
 /// <summary>
 /// Data Transfer Object representing city information returned by the API.
