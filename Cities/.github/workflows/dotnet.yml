@@ -1,0 +1,66 @@
+name: .NET Build, Test, and Publish
+
+on:
+  push:
+    branches: [ "master" ] 
+  pull_request:
+    branches: [ "master"  ]
+
+jobs:
+  build_and_test: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' 
+
+    - name: Restore dependencies
+      run: dotnet restore ./Cities.sln
+      # This command downloads and installs all necessary NuGet packages.
+
+    - name: Build
+      run: dotnet build --no-restore ./Cities.sln -c Release
+      # --no-restore is used because dependencies were already restored in the previous step.
+      # -c Release builds the project in Release configuration.
+
+    - name: Test
+      run: > # Using > for multi-line command for readability
+        dotnet test ./Cities.sln
+        --no-build
+        -c Release
+        --verbosity normal
+        --logger "trx;LogFileName=test-results.trx"
+        --results-directory ./test-results
+      # --no-build: Assumes the project is already built.
+      # --logger "trx;LogFileName=test-results.trx": Outputs test results in TRX format.
+      # --results-directory ./test-results: Specifies where to put the TRX file.
+
+    - name: Publish API Project
+      run: >
+        dotnet publish ./Cities.Api/Cities.Api.csproj
+        -c Release
+        -o ./publish
+        --no-build
+      # Publishes the API project (assuming CityInfo.Api is its name).
+      # -o ./publish: Outputs the published files to a directory named 'publish'.
+
+    - name: Upload API Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: city-info-api-release # Name of the artifact
+        path: ./publish # Path to the files to upload
+        # This zips the content of the './publish' directory and stores it.
+
+    - name: Upload Test Results Artifact
+      # This step runs even if previous steps (like tests) fail,
+      # so you always get the test results.
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: ./test-results/test-results.trx # Path to the TRX file

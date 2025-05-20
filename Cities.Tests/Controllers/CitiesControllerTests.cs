@@ -5,8 +5,6 @@ using Cities.Api.Controllers;
 using Cities.Api.Dtos;
 using Cities.Api.Models; // For CityData
 using Cities.Api.Services;
-using Xunit;
-using Microsoft.AspNetCore.Http;
 
 namespace Cities.Tests.Controllers;
 

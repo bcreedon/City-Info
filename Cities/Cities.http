@@ -1,6 +1,10 @@
-@Cities_HostAddress = http://localhost:5105
+@hostname=localhost
+@port=5105
 
-GET {{Cities_HostAddress}}/weatherforecast/
-Accept: application/json
+### Gets all cities
+GET http://{{hostname}}:{{port}}/api/cities
+###
 
+### Gets single city
+GET http://{{hostname}}:{{port}}/api/cities/New York City
 ###
