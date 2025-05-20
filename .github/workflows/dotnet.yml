@@ -42,11 +42,11 @@ jobs:
 
     - name: Publish API Project
       run: >
-        dotnet publish ./Cities.Api/Cities.Api.csproj
+        dotnet publish ./Cities/Cities.Api.csproj
         -c Release
         -o ./publish
         --no-build
-      # Publishes the API project (assuming CityInfo.Api is its name).
+      # Publishes the API project (assuming Cities.Api is its name).
       # -o ./publish: Outputs the published files to a directory named 'publish'.
 
     - name: Upload API Build Artifact
