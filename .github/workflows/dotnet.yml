@@ -53,7 +53,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: city-info-api-release # Name of the artifact
-        path: ./publish # Path to the files to upload
+        path: ./published # Path to the files to upload
         # This zips the content of the './publish' directory and stores it.
 
     - name: Upload Test Results Artifact
