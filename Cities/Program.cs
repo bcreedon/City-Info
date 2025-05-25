@@ -1,10 +1,19 @@
 using Cities.Api.Services;
+using Serilog; // For logging
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+//Serilog config
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Warning()
+    .WriteTo.File("log/apiLogs.txt", rollingInterval: RollingInterval.Month)
+    .CreateLogger();
+
+builder.Host.UseSerilog(); // Use Serilog for logging
 
 // --- Dependency Injection Setup ---
 // Register ICityDataService and its implementation JsonCityDataService.
